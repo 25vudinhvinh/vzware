@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom";
 import {
     faBarsProgress,
     faBorderAll,
@@ -6,12 +7,27 @@ import {
     faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import avatar from "../assets/avatar.png";
 import { faBell, faCircleUser } from "@fortawesome/free-regular-svg-icons";
+import avatar from "../assets/avatar.png";
 
 function Sidebar() {
+    const location = useLocation();
+
+    const menuItems = [
+        { icon: faCircleUser, label: "Quản lý tài khoản", path: "/account" },
+        { icon: faUserGroup, label: "Quản lý nhân sự", path: "/hr" },
+        { icon: faGroupArrowsRotate, label: "Chấm công", path: "/attendance" },
+        { icon: faBorderAll, label: "Phòng ban", path: "/department" },
+        { icon: faCalendar, label: "Lịch", path: "/calendar" },
+        { icon: faBarsProgress, label: "Quản lý dự án", path: "/kanban" },
+    ];
+
+    // CSS class chung cho tất cả các link
+    const linkClass =
+        "w-full flex items-center gap-3 text-white text-sm cursor-pointer p-2 rounded-md transition-colors";
+
     return (
-        <div className="w-full h-full flex flex-col items-center py-6 px-4 gap-6 bg-gray-800">
+        <div className="w-64 h-screen flex flex-col items-center py-6 px-4 gap-6 bg-gray-800">
             {/* S.1 - User Info */}
             <div className="w-full flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
@@ -39,41 +55,39 @@ function Sidebar() {
 
             {/* S.2 - Navigation Items */}
             <div className="w-full flex flex-col gap-3">
-                <div className="w-full flex items-center gap-3 text-white text-sm cursor-pointer hover:bg-gray-700 p-2 rounded-md transition-colors">
-                    <FontAwesomeIcon icon={faCircleUser} className="text-lg" />
-                    <span>Quản lý tài khoản</span>
-                </div>
-                <div className="w-full flex items-center gap-3 text-white text-sm cursor-pointer hover:bg-gray-700 p-2 rounded-md transition-colors">
-                    <FontAwesomeIcon icon={faUserGroup} className="text-lg" />
-                    <span>Quản lý nhân sự</span>
-                </div>
-                <div className="w-full flex items-center gap-3 text-white text-sm cursor-pointer hover:bg-gray-700 p-2 rounded-md transition-colors">
-                    <FontAwesomeIcon
-                        icon={faGroupArrowsRotate}
-                        className="text-lg"
-                    />
-                    <span>Chấm công</span>
-                </div>
-                <div className="w-full flex items-center gap-3 text-white text-sm cursor-pointer hover:bg-gray-700 p-2 rounded-md transition-colors">
-                    <FontAwesomeIcon icon={faBorderAll} className="text-lg" />
-                    <span>Phòng ban</span>
-                </div>
+                {menuItems.slice(0, 4).map((item) => (
+                    <Link
+                        key={item.path}
+                        to={item.path}
+                        className={`${linkClass} ${
+                            location.pathname === item.path
+                                ? "bg-gray-700"
+                                : "hover:bg-gray-700"
+                        }`}
+                    >
+                        <FontAwesomeIcon icon={item.icon} className="text-lg" />
+                        <span>{item.label}</span>
+                    </Link>
+                ))}
             </div>
             <span className="h-px w-full bg-gray-600"></span>
 
             {/* S.3 - Additional Items */}
             <div className="w-full flex flex-col gap-3">
-                <div className="w-full flex items-center gap-3 text-white text-sm cursor-pointer hover:bg-gray-700 p-2 rounded-md transition-colors">
-                    <FontAwesomeIcon icon={faCalendar} className="text-lg" />
-                    <span>Lịch</span>
-                </div>
-                <div className="w-full flex items-center gap-3 text-white text-sm cursor-pointer hover:bg-gray-700 p-2 rounded-md transition-colors">
-                    <FontAwesomeIcon
-                        icon={faBarsProgress}
-                        className="text-lg"
-                    />
-                    <span>Quản lý dự án</span>
-                </div>
+                {menuItems.slice(4).map((item) => (
+                    <Link
+                        key={item.path}
+                        to={item.path}
+                        className={`${linkClass} ${
+                            location.pathname === item.path
+                                ? "bg-gray-700"
+                                : "hover:bg-gray-700"
+                        }`}
+                    >
+                        <FontAwesomeIcon icon={item.icon} className="text-lg" />
+                        <span>{item.label}</span>
+                    </Link>
+                ))}
             </div>
         </div>
     );
