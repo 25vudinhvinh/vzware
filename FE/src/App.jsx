@@ -33,7 +33,7 @@ function App() {
                                 path="/department"
                                 element={<Department />}
                             />
-                            <Route path="/calendar" element={<Calendar />} />
+
                             <Route path="/kanban" element={<Kanban />} />
                             <Route path="/" element={<Calendar />} />
                         </Routes>

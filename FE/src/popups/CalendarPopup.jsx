@@ -1,9 +1,8 @@
 import { useState } from "react";
 
 function CalendarPopup({ setShowPopup }) {
-    const [activeTab, setActiveTab] = useState("leave"); // Default to Lịch nghỉ
+    const [activeTab, setActiveTab] = useState("leave");
 
-    // Function to render form based on selected tab
     const renderForm = () => {
         switch (activeTab) {
             case "leave":
@@ -54,7 +53,7 @@ function CalendarPopup({ setShowPopup }) {
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                                        Ngày nghỉ
+                                        Ngày
                                     </label>
                                     <input
                                         type="date"
@@ -173,7 +172,7 @@ function CalendarPopup({ setShowPopup }) {
             case "wfh":
                 return (
                     <div className="">
-                        <form className="space-y-4">
+                        <form className="space-y-3">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">
                                     Nhân viên
@@ -241,7 +240,7 @@ function CalendarPopup({ setShowPopup }) {
     return (
         <div className="h-full w-full bg-white p-6 rounded-lg shadow-lg relative">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Thêm lịch</h2>
-            {/* Close button */}
+
             <button
                 onClick={() => setShowPopup(false)}
                 className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl font-bold cursor-pointer"

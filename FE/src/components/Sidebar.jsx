@@ -18,7 +18,7 @@ function Sidebar() {
         { icon: faUserGroup, label: "Quản lý nhân sự", path: "/hr" },
         { icon: faGroupArrowsRotate, label: "Chấm công", path: "/attendance" },
         { icon: faBorderAll, label: "Phòng ban", path: "/department" },
-        { icon: faCalendar, label: "Lịch", path: "/calendar" },
+        { icon: faCalendar, label: "Lịch", path: "/" },
         { icon: faBarsProgress, label: "Quản lý dự án", path: "/kanban" },
     ];
 

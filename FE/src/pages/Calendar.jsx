@@ -8,17 +8,9 @@ function Calendar() {
 
     const events = [
         { title: "Event 1", date: "2025-09-23" },
-        { title: "Event 2", date: "2025-09-24" }, // Thay đổi ngày cho sự kiện
+        { title: "Event 2", date: "2025-09-24" },
         { title: "Event 3", date: "2025-09-25" },
     ];
-
-    const renderDayCells = (info) => {
-        const dayOfWeek = info.date.getDay();
-        // Chỉ hiển thị các ngày từ thứ Hai (1) đến thứ Sáu (5)
-        return dayOfWeek >= 1 && dayOfWeek <= 5
-            ? undefined
-            : { display: "none" };
-    };
 
     return (
         <div className="m-3 relative">
@@ -51,7 +43,6 @@ function Calendar() {
                             arg.date.getDay() === 0 || arg.date.getDay() === 6;
                         return isWeekend ? "text-gray-500" : "text-gray-800";
                     }}
-                    dayRender={renderDayCells} // Sử dụng hàm renderDayCells
                 />
             </div>
             {/* add event */}
