@@ -64,7 +64,7 @@ function Department() {
                         </div>
 
                         {/* add */}
-                        <div className="bg-green-500 px-5 cursor-pointer py-2 rounded-3xl flex gap-1 items-center">
+                        <div className="bg-blue-500 px-5 cursor-pointer py-2 rounded-3xl flex gap-1 items-center">
                             <span className="text-white">
                                 <FontAwesomeIcon icon={faPlusCircle} />
                             </span>
@@ -114,7 +114,7 @@ function Department() {
                             <td className="p-2">IT Admin</td>
                             <td className="p-2">2010-06-04</td>
                             <td className="p-2">
-                                <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full">
+                                <span className="px-3 py-2 bg-blue-500 text-center text-sm text-white font-semibold rounded-full">
                                     Active
                                 </span>
                             </td>
@@ -122,7 +122,7 @@ function Department() {
                                 <span className="cursor-pointer bg-gray-100 p-1 text-blue-400 rounded">
                                     <FontAwesomeIcon icon={faEye} />
                                 </span>
-                                <span className="cursor-pointer bg-gray-100 p-1 text-green-500 rounded">
+                                <span className="cursor-pointer bg-gray-100 p-1 text-blue-500 rounded">
                                     <FontAwesomeIcon icon={faPenSquare} />
                                 </span>
                             </td>

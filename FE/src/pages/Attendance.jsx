@@ -115,7 +115,7 @@ function Attendance() {
                         </label>
                         <input
                             type="text"
-                            value="Tòa nhà FPT Tower, Cầu Giấy, Hà Nội"
+                            value="25/D7 Phố Dịch Vọng, Cầu Giấy, Hà Nội"
                             readOnly
                             className="w-full p-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
                         />
